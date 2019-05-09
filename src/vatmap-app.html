@@ -10,13 +10,16 @@
 <link rel="import" href="../bower_components/iron-pages/iron-pages.html">
 <link rel="import" href="../bower_components/iron-selector/iron-selector.html">
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../bower_components/google-map/google-map.html">
 <link rel="import" href="vatmap-icons.html">
+<link rel="import" href="aircraft-card-layout.html">
 
 <dom-module id="vatmap-app">
   <template>
     <style>
       :host {
         --app-primary-color: #4285f4;
+        --app-primary-text-color: #fff;
         --app-secondary-color: black;
 
         display: block;
@@ -34,6 +37,27 @@
       app-header paper-icon-button {
         --paper-icon-button-ink-color: white;
       }
+      google-map {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -1;
+      }
+      .content {
+        background-color: #fff;
+        max-width: 480px;
+        margin: calc(100vh - 192px) auto 0px auto;
+      }
+      @media (max-width: 480px) {
+        .content {
+          margin: calc(100vh - 192px) 0 0 0;
+        }
+        .card {
+          height: calc(100vh - 64px);
+        }
+      }
     </style>
 
     <app-location
@@ -47,6 +71,34 @@
         data="{{routeData}}"
         tail="{{subroute}}">
     </app-route>
+
+    <app-header-layout>
+      <app-header slot="header" reveals condenses effects="waterfall">
+        <app-toolbar>
+          <div main-title>Vatmap</div>
+        </app-toolbar>
+      </app-header>
+      <google-map
+        additional-map-options='{"mapTypeId":"satellite"}'
+        disable-default-ui
+        fit-to-marker
+        api-key="AIzaSyDj4y39JAORYGw4rNcA1y8oVj0m8lNDje4"
+        latitude="40.0955474"
+        longitude="-3.070306"
+        zoom="4"
+        drag-events="true"
+        id="map"></google-map>
+      <div class="content">
+        <app-header-layout>
+          <app-header fixed>
+            <app-toolbar>
+              <div main-title>LND076</div>
+            </app-toolbar>
+          </app-header>
+          <aircraft-card-layout class="card"></aircraft-card-layout>
+        </app-header-layout>
+      </div>
+    </app-header-layout>
   </template>
 
   <script>
