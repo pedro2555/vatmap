@@ -21,6 +21,9 @@
       paper-item-body[center] > * {
         margin: 0 auto;
       }
+      iron-icon {
+        color: var(--app-secondary-color);
+      }
     </style>
 
     <paper-item>
@@ -38,21 +41,6 @@
     </paper-item>
 
     <paper-icon-item>
-      <iron-icon icon="vatmap-icons:route" slot="item-icon"></iron-icon>
-      <paper-item-body two-line>
-        <div>CRR UM540 ARVUS UM424 NELOX UZ23 SUGMU</div>
-        <div secondary>ROUTE</div>
-      </paper-item-body>
-    </paper-icon-item>
-
-    <paper-icon-item>
-      <paper-item-body two-line>
-        <div>/v/</div>
-        <div secondary>REMARKS</div>
-      </paper-item-body>
-    </paper-icon-item>
-
-    <paper-icon-item>
       <iron-icon icon="vatmap-icons:aircraft" slot="item-icon"></iron-icon>
       <paper-item-body two-line>
         <div>B748</div>
@@ -64,6 +52,10 @@
       <paper-item-body two-line>
         <div>Yuri Medvedev UWWW</div>
         <div secondary>PILOT</div>
+      </paper-item-body>
+      <paper-item-body two-line>
+        <div>1h50m</div>
+        <div secondary>ONLINE</div>
       </paper-item-body>
     </paper-icon-item>
 
@@ -84,6 +76,21 @@
       <paper-item-body two-line>
         <div>510 kts</div>
         <div secondary>GROUNDSPEED</div>
+      </paper-item-body>
+    </paper-icon-item>
+
+    <paper-icon-item>
+      <iron-icon icon="vatmap-icons:route" slot="item-icon"></iron-icon>
+      <paper-item-body two-line>
+        <div>CRR UM540 ARVUS UM424 NELOX UZ23 SUGMU</div>
+        <div secondary>ROUTE</div>
+      </paper-item-body>
+    </paper-icon-item>
+
+    <paper-icon-item>
+      <paper-item-body two-line>
+        <div>/v/</div>
+        <div secondary>REMARKS</div>
       </paper-item-body>
     </paper-icon-item>
   </template>

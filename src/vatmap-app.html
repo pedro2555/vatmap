@@ -18,9 +18,9 @@
   <template>
     <style>
       :host {
-        --app-primary-color: #4285f4;
+        --app-primary-color: #0b6e4f;
         --app-primary-text-color: #fff;
-        --app-secondary-color: black;
+        --app-secondary-color: #fa9f42;
 
         display: block;
       }
@@ -58,6 +58,20 @@
           height: calc(100vh - 64px);
         }
       }
+      app-drawer {
+        margin-top: 64px;
+        --app-drawer-scrim-background: transparent;
+        --app-drawer-content-container: {
+          background-color: transparent;
+        }
+      }
+      app-drawer paper-icon-item {
+        margin: 16px 0;
+        border-radius: 0 24px 24px 0;
+        color: var(--app-secondary-color);
+        background-color: var(--app-primary-color);
+
+      }
     </style>
 
     <app-location
@@ -78,6 +92,7 @@
           <div main-title>Vatmap</div>
         </app-toolbar>
       </app-header>
+
       <google-map
         additional-map-options='{"mapTypeId":"satellite"}'
         disable-default-ui
@@ -98,6 +113,7 @@
           <aircraft-card-layout class="card"></aircraft-card-layout>
         </app-header-layout>
       </div>
+
     </app-header-layout>
   </template>
 
