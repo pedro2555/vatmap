@@ -1,0 +1,64 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+
+<link rel="import" href="../bower_components/google-map/google-map.html">
+<link rel="import" href="../bower_components/app-layout/app-header-layout/app-header-layout.html">
+
+<link rel="import" href="shared-styles.html">
+<link rel="import" href="vatmap-icons.html">
+<link rel="import" href="map-view-pilot.html">
+
+<dom-module id="map-view">
+  <template>
+    <style include="shared-styles">
+      google-map {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -1;
+      }
+      .content {
+        background-color: #fff;
+        max-width: 480px;
+        margin: calc(100vh - 192px) auto 0px auto;
+      }
+      @media (max-width: 480px) {
+        .content {
+          margin: calc(100vh - 192px) 0 0 0;
+        }
+        .card {
+          height: calc(100vh - 64px);
+        }
+      }
+    </style>
+
+    <app-header-layout>
+      <app-header slot="header" reveals condenses effects="waterfall">
+        <app-toolbar>
+          <div main-title>Vatmap</div>
+        </app-toolbar>
+      </app-header>
+
+      <google-map
+        additional-map-options='{"mapTypeId":"satellite"}'
+        disable-default-ui
+        fit-to-marker
+        api-key="AIzaSyDj4y39JAORYGw4rNcA1y8oVj0m8lNDje4"
+        latitude="40.0955474"
+        longitude="-3.070306"
+        zoom="4"
+        drag-events="true"
+        id="map"></google-map>
+
+      <map-view-pilot class="content card"></map-view-pilot>
+    </app-header-layout>
+  </template>
+  <script>
+    class MapView extends Polymer.Element {
+      static get is() { return 'map-view'; }
+    }
+
+    window.customElements.define(MapView.is, MapView);
+  </script>
+</dom-module>

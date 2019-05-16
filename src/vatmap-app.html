@@ -1,18 +1,9 @@
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
-<link rel="import" href="../bower_components/app-layout/app-drawer/app-drawer.html">
-<link rel="import" href="../bower_components/app-layout/app-drawer-layout/app-drawer-layout.html">
-<link rel="import" href="../bower_components/app-layout/app-header/app-header.html">
-<link rel="import" href="../bower_components/app-layout/app-header-layout/app-header-layout.html">
-<link rel="import" href="../bower_components/app-layout/app-scroll-effects/app-scroll-effects.html">
-<link rel="import" href="../bower_components/app-layout/app-toolbar/app-toolbar.html">
+
 <link rel="import" href="../bower_components/app-route/app-location.html">
 <link rel="import" href="../bower_components/app-route/app-route.html">
-<link rel="import" href="../bower_components/iron-pages/iron-pages.html">
-<link rel="import" href="../bower_components/iron-selector/iron-selector.html">
-<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
-<link rel="import" href="../bower_components/google-map/google-map.html">
-<link rel="import" href="vatmap-icons.html">
-<link rel="import" href="aircraft-card-layout.html">
+
+<link rel="import" href="map-view.html">
 
 <dom-module id="vatmap-app">
   <template>
@@ -54,23 +45,6 @@
         .content {
           margin: calc(100vh - 192px) 0 0 0;
         }
-        .card {
-          height: calc(100vh - 64px);
-        }
-      }
-      app-drawer {
-        margin-top: 64px;
-        --app-drawer-scrim-background: transparent;
-        --app-drawer-content-container: {
-          background-color: transparent;
-        }
-      }
-      app-drawer paper-icon-item {
-        margin: 16px 0;
-        border-radius: 0 24px 24px 0;
-        color: var(--app-secondary-color);
-        background-color: var(--app-primary-color);
-
       }
     </style>
 
@@ -86,35 +60,7 @@
         tail="{{subroute}}">
     </app-route>
 
-    <app-header-layout>
-      <app-header slot="header" reveals condenses effects="waterfall">
-        <app-toolbar>
-          <div main-title>Vatmap</div>
-        </app-toolbar>
-      </app-header>
-
-      <google-map
-        additional-map-options='{"mapTypeId":"satellite"}'
-        disable-default-ui
-        fit-to-marker
-        api-key="AIzaSyDj4y39JAORYGw4rNcA1y8oVj0m8lNDje4"
-        latitude="40.0955474"
-        longitude="-3.070306"
-        zoom="4"
-        drag-events="true"
-        id="map"></google-map>
-      <div class="content">
-        <app-header-layout>
-          <app-header fixed>
-            <app-toolbar>
-              <div main-title>LND076</div>
-            </app-toolbar>
-          </app-header>
-          <aircraft-card-layout class="card"></aircraft-card-layout>
-        </app-header-layout>
-      </div>
-
-    </app-header-layout>
+    <map-view></map-view>
   </template>
 
   <script>
