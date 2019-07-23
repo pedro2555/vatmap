@@ -1,0 +1,25 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+
+<link rel="import" href="../../bower_components/google-map/google-map.html">
+
+<dom-module id="traffic-map">
+  <template>
+    <google-map
+      additional-map-options='{"mapTypeId":"satellite"}'
+      disable-default-ui
+      fit-to-marker
+      api-key="AIzaSyDj4y39JAORYGw4rNcA1y8oVj0m8lNDje4"
+      latitude="40.0955474"
+      longitude="-3.070306"
+      zoom="4"
+      drag-events="true"
+      id="map"></google-map>
+  </template>
+  <script>
+    class TrafficMap extends Polymer.Element {
+      static get is() { return 'traffic-map'; }
+    }
+
+    window.customElements.define(TrafficMap.is, TrafficMap);
+  </script>
+</dom-module>

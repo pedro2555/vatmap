@@ -4,13 +4,15 @@
 <link rel="import" href="../bower_components/app-layout/app-header-layout/app-header-layout.html">
 
 <link rel="import" href="shared-styles.html">
+<link rel="import" href="views/traffic-map.html">
+
 <link rel="import" href="vatmap-icons.html">
 <link rel="import" href="map-view-pilot.html">
 
-<dom-module id="map-view">
+<dom-module id="map-activity">
   <template>
     <style include="shared-styles">
-      google-map {
+      traffic-map {
         position: fixed;
         top: 0;
         left: 0;
@@ -40,25 +42,15 @@
         </app-toolbar>
       </app-header>
 
-      <google-map
-        additional-map-options='{"mapTypeId":"satellite"}'
-        disable-default-ui
-        fit-to-marker
-        api-key="AIzaSyDj4y39JAORYGw4rNcA1y8oVj0m8lNDje4"
-        latitude="40.0955474"
-        longitude="-3.070306"
-        zoom="4"
-        drag-events="true"
-        id="map"></google-map>
-
+      <traffic-map></traffic-map>
       <map-view-pilot class="content card"></map-view-pilot>
     </app-header-layout>
   </template>
   <script>
-    class MapView extends Polymer.Element {
-      static get is() { return 'map-view'; }
+    class MapActivity extends Polymer.Element {
+      static get is() { return 'map-activity'; }
     }
 
-    window.customElements.define(MapView.is, MapView);
+    window.customElements.define(MapActivity.is, MapActivity);
   </script>
 </dom-module>
