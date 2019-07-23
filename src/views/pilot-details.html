@@ -1,16 +1,16 @@
-<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
 
-<link rel="import" href="../bower_components/app-layout/app-header/app-header.html">
-<link rel="import" href="../bower_components/app-layout/app-toolbar/app-toolbar.html">
-<link rel="import" href="../bower_components/paper-item/paper-icon-item.html">
-<link rel="import" href="../bower_components/paper-item/paper-item.html">
-<link rel="import" href="../bower_components/paper-item/paper-item-body.html">
-<link rel="import" href="../bower_components/iron-icon/iron-icon.html">
+<link rel="import" href="../../bower_components/app-layout/app-header/app-header.html">
+<link rel="import" href="../../bower_components/app-layout/app-toolbar/app-toolbar.html">
+<link rel="import" href="../../bower_components/paper-item/paper-icon-item.html">
+<link rel="import" href="../../bower_components/paper-item/paper-item.html">
+<link rel="import" href="../../bower_components/paper-item/paper-item-body.html">
+<link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
 
-<link rel="import" href="shared-styles.html">
-<link rel="import" href="vatmap-icons.html">
+<link rel="import" href="../shared-styles.html">
+<link rel="import" href="../vatmap-icons.html">
 
-<dom-module id="map-view-pilot">
+<dom-module id="pilot-details">
   <template>
     <style include="shared-styles">
       :host {
@@ -106,10 +106,10 @@
     </paper-icon-item>
   </template>
   <script>
-    class MapViewPilot extends Polymer.Element {
-      static get is() { return 'map-view-pilot'; }
+    class PilotDetails extends Polymer.Element {
+      static get is() { return 'pilot-details'; }
     }
 
-    window.customElements.define(MapViewPilot.is, MapViewPilot);
+    window.customElements.define(PilotDetails.is, PilotDetails);
   </script>
 </dom-module>

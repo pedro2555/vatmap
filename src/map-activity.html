@@ -2,12 +2,14 @@
 
 <link rel="import" href="../bower_components/google-map/google-map.html">
 <link rel="import" href="../bower_components/app-layout/app-header-layout/app-header-layout.html">
+<link rel="import" href="../bower_components/app-layout/app-header/app-header.html">
+<link rel="import" href="../bower_components/app-layout/app-toolbar/app-toolbar.html">
 
 <link rel="import" href="shared-styles.html">
-<link rel="import" href="views/traffic-map.html">
-
 <link rel="import" href="vatmap-icons.html">
-<link rel="import" href="map-view-pilot.html">
+
+<link rel="import" href="views/traffic-map.html">
+<link rel="import" href="views/pilot-details.html">
 
 <dom-module id="map-activity">
   <template>
@@ -43,7 +45,7 @@
       </app-header>
 
       <traffic-map></traffic-map>
-      <map-view-pilot class="content card"></map-view-pilot>
+      <pilot-details class="content card"></pilot-details>
     </app-header-layout>
   </template>
   <script>
