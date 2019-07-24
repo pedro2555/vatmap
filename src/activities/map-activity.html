@@ -44,7 +44,7 @@
         </app-toolbar>
       </app-header>
 
-      <traffic-map pilots="[[pilots]]" selected-pilot="[[selectedPilot]]"></traffic-map>
+      <traffic-map id="map" pilots="[[pilots]]" selected-pilot="[[selectedPilot]]"></traffic-map>
       <pilot-details class="content card"></pilot-details>
     </app-header-layout>
   </template>
@@ -74,6 +74,16 @@
             ]
           }
         };
+      }
+
+      ready() {
+        super.ready();
+
+        this.$.map.addEventListener('pilot-clicked', this._pilotClicked);
+      }
+
+      _pilotClicked(e) {
+        this.selectedPilot = e.detail.pilot;
       }
     }
 

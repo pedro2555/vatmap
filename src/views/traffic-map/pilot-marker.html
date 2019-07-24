@@ -12,6 +12,7 @@
       longitude="[[pilot.lng]]"
       title="[[pilot.callsign]]"
       icon="[[_computeMarkerIcon(pilot)]]"
+      click-events
     ></google-map-marker>
   </template>
   <script>
@@ -51,6 +52,12 @@
         };
       }
 
+      ready() {
+        super.ready();
+
+        this.$.marker.addEventListener('google-map-marker-click', this._markerClicked.bind(this));
+      }
+
       _computeMarkerIcon(pilot) {
         let heading = pilot.heading % 360;  // normalize heading to range(0-359)
         let x = heading / 15;               // sprite contains steps of 15 degrees
@@ -72,6 +79,13 @@
             y: 11.5
           }
         };
+      }
+
+      _markerClicked(e) {
+        this.dispatchEvent(new CustomEvent('pilot-clicked', {
+          bubbles: true,
+          composed: true,
+          detail: {pilot: this.pilot}}));
       }
     }
 
