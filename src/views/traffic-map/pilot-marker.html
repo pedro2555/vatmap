@@ -1,0 +1,73 @@
+<link rel="import" href="../../../bower_components/polymer/polymer-element.html">
+
+<link rel="import" href="../../../bower_components/google-map/google-map.html">
+<link rel="import" href="../../../bower_components/google-map/google-map-marker.html">
+
+<dom-module id="pilot-marker">
+  <template>
+    <google-map-marker
+      id="marker"
+      map="[[map]]"
+      latitude="[[pilot.lat]]"
+      longitude="[[pilot.lng]]"
+      title="[[pilot.callsign]]"
+      icon="[[_computeMarkerIcon(pilot)]]"
+    ></google-map-marker>
+  </template>
+  <script>
+    class PilotMarker extends Polymer.Element {
+      static get is() { return 'pilot-marker'; }
+
+      static get properties() {
+        return {
+          /**
+           * Google Map element. This element is automatically injected via a parent element
+           * child element with the same name and can be omitted from the elment properties.
+           *
+           * @type {GoogleMap}
+           */
+          map: Object,
+          /**
+           * Object representing a pilot.
+           *
+           * @type {Object}
+           */
+          pilot: {
+            type: Object,
+            value: {
+              lat: 40.0955474,
+              lng: -3.070306,
+              heading: 33.0,
+              callsign: 'TSZ213'
+            }
+          }
+        };
+      }
+
+      _computeMarkerIcon(pilot) {
+        let heading = pilot.heading % 360;  // normalize heading to range(0-359)
+        let x = heading / 15;               // sprite contains steps of 15 degrees
+        x = x + 12;                         // sprite starts at 180 ends at 170 (180-0-170)
+        x = x % 24;                         // there 24 sprites (360/15), normalize to range(0-23)
+        x = parseInt(x);
+        return {
+          url: 'images/aircraft-red-icons.png',
+          size: {
+            height: 23,
+            width: 23
+          },
+          origin: {
+            x: x * 48,
+            y: 3 * 48
+          },
+          anchor: {
+            x: 11.5,
+            y: 11.5
+          }
+        };
+      }
+    }
+
+    window.customElements.define(PilotMarker.is, PilotMarker);
+  </script>
+</dom-module>

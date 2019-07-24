@@ -2,6 +2,8 @@
 
 <link rel="import" href="../../bower_components/google-map/google-map.html">
 
+<link rel="import" href="traffic-map/pilot-marker.html">
+
 <dom-module id="traffic-map">
   <template>
     <google-map
@@ -15,11 +17,7 @@
       drag-events="true"
       id="map">
 
-      <google-map-marker
-        latitude="40.0955474"
-        longitude="-3.070306"
-        title="Pilot Marker">
-      </google-map-marker>
+      <pilot-marker></pilot-marker>
 
     </google-map>
   </template>
