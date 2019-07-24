@@ -44,7 +44,7 @@
         </app-toolbar>
       </app-header>
 
-      <traffic-map selected-pilot="[[selectedPilot]]"></traffic-map>
+      <traffic-map pilots="[[pilots]]" selected-pilot="[[selectedPilot]]"></traffic-map>
       <pilot-details class="content card"></pilot-details>
     </app-header-layout>
   </template>
@@ -55,13 +55,23 @@
       static get properties() {
         return {
           selectedPilot: {
-            type: Object,
-            value: {
-              lat: 40.0955474,
-              lng: -3.070306,
-              heading: 33.0,
-              callsign: 'TSZ213'
-            }
+            type: Object
+          },
+          pilots: {
+            type: Array,
+            value: [
+              {
+                lat: 40.0955474,
+                lng: -3.070306,
+                heading: 33.0,
+                callsign: 'TSZ213'
+              }, {
+                lat: 38.9370975,
+                lng: -8.5710731,
+                heading: 278.0,
+                callsign: 'TSZ101'
+              }
+            ]
           }
         };
       }

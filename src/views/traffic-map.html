@@ -19,6 +19,10 @@
 
       <pilot-marker pilot="[[selectedPilot]]" color="red"></pilot-marker>
 
+      <template is="dom-repeat" items="[[pilots]]" as="pilot">
+        <pilot-marker pilot="[[pilot]]" color="yellow"></pilot-marker>
+      </template>
+
     </google-map>
   </template>
   <script>
@@ -29,6 +33,10 @@
         return {
           selectedPilot: {
             type: Object,
+            reflectToAttribute: true
+          },
+          pilots: {
+            type: Array,
             reflectToAttribute: true
           }
         };
