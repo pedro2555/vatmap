@@ -17,13 +17,22 @@
       drag-events="true"
       id="map">
 
-      <pilot-marker></pilot-marker>
+      <pilot-marker pilot="[[selectedPilot]]"></pilot-marker>
 
     </google-map>
   </template>
   <script>
     class TrafficMap extends Polymer.Element {
       static get is() { return 'traffic-map'; }
+
+      static get properties() {
+        return {
+          selectedPilot: {
+            type: Object,
+            reflectToAttribute: true
+          }
+        };
+      }
     }
 
     window.customElements.define(TrafficMap.is, TrafficMap);

@@ -44,13 +44,27 @@
         </app-toolbar>
       </app-header>
 
-      <traffic-map></traffic-map>
+      <traffic-map selected-pilot="[[selectedPilot]]"></traffic-map>
       <pilot-details class="content card"></pilot-details>
     </app-header-layout>
   </template>
   <script>
     class MapActivity extends Polymer.Element {
       static get is() { return 'map-activity'; }
+
+      static get properties() {
+        return {
+          selectedPilot: {
+            type: Object,
+            value: {
+              lat: 40.0955474,
+              lng: -3.070306,
+              heading: 33.0,
+              callsign: 'TSZ213'
+            }
+          }
+        };
+      }
     }
 
     window.customElements.define(MapActivity.is, MapActivity);
